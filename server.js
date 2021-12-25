@@ -24,7 +24,6 @@ io.on("connection", (socket) => {
 
   // For message event
   socket.on("send", (message) => {
-    console.log(message);
     socket.broadcast.emit("recieve", {
       name: user[socket.id],
       message: message,

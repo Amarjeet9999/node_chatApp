@@ -3,6 +3,18 @@ const socket = io();
 const container = document.querySelector(".container");
 const sendForm = document.querySelector(".send");
 const input = document.querySelector("#input");
+const usernameForm = document.getElementById("usernameForm");
+const enterUsername = document.getElementById("enterUsername");
+
+let userName; // Entered User
+
+usernameForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  userName = enterUsername.value;
+  console.log(enterUsername.value);
+  document.querySelector(".nameBox").style.display = "none";
+  socket.emit("new_user_joined", userName);
+});
 
 const append = (name, message, position) => {
   const mainDiv = document.createElement("div");
@@ -36,10 +48,6 @@ sendForm.addEventListener("submit", (e) => {
   socket.emit("send", inputMessage);
   input.value = "";
 });
-
-const userName = prompt("Enter your Name To join");
-
-socket.emit("new_user_joined", userName);
 
 socket.on("user_joined", (name) => {
   joinAppend(`${name} Joined the chat`, "mid");

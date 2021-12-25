@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Poppins:wght@900&family=Roboto:wght@100;300&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -5,40 +7,65 @@
 }
 
 body {
-  background-color: grey !important;
+  background-color: #1a374d !important;
+  font-family: "Mochiy Pop P One", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .root {
   min-height: 100vh;
-  padding: 10px 10px;
-  width: 50%;
+  padding: 10px 20px;
+  width: 90%;
   margin: auto;
-  background-color: whitesmoke;
+  background-color: #b1d0e0;
+}
+
+.head {
+  max-width: max-content;
+  margin: auto;
+  height: 10vh;
+  line-height: 10vh;
+  font-size: 30px;
 }
 
 .container {
-  min-height: 80vh;
+  min-height: 70vh;
+  max-height: 70vh;
   padding: 0 10px;
-  margin-top: 25px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 2px dotted black;
+  overflow-y: scroll;
+}
+
+.container::-webkit-scrollbar {
+  width: 0;
 }
 
 .chat {
-  min-height: 40px;
+  min-height: 60px;
+  min-width: 150px;
   border-radius: 5px;
   border: 1px dotted black;
   display: flex;
   flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 10px 10px;
 }
 
 .upper {
   height: max-content;
-  font-size: 15px !important;
+  font-size: 18px !important;
   padding: 0 10px;
-  font-weight: 600;
+  font-weight: 800;
   margin-bottom: 5px;
+  text-transform: capitalize;
 }
+
 .message {
-  padding: 0 12px;
+  padding: 0 10px;
+  font-size: 25px;
 }
 
 .left {
@@ -60,11 +87,11 @@ body {
   clear: both;
   width: max-content !important;
   background-color: rgb(243, 223, 223);
-  min-height: 20px;
+  min-height: 30px;
   font-size: 15px;
   margin: 10px auto;
-  padding: 0 20px;
-  font-weight: 600;
+  padding: 5px 20px;
+  font-weight: 800;
   color: grey;
 }
 
@@ -97,4 +124,47 @@ body {
 
 .send #submit:hover {
   background-color: tomato;
+}
+
+.nameBox {
+  position: absolute;
+  top: 0;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  min-height: 100vh;
+  min-width: 100%;
+  z-index: 999;
+}
+
+.nameBox form {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  height: max-content;
+  width: 500px;
+}
+
+.nameBox form input[type="text"] {
+  height: 50px;
+  width: 100%;
+  outline: none;
+  border-radius: 10px;
+  padding: 0 20px;
+  font-size: 22px;
+}
+
+.nameBox form input[type="submit"] {
+  height: 50px;
+  width: 100%;
+  outline: none;
+  border-radius: 10px;
+  background-color: yellowgreen;
+  color: white;
+  font-size: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 20px;
 }
