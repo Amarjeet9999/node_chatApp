@@ -168,3 +168,16 @@ body {
   cursor: pointer;
   margin-top: 20px;
 }
+
+@media only screen and (max-width: 600px) {
+  .nameBox form {
+    width: 60%;
+  }
+  .head {
+    font-size: 18px;
+  }
+  .send #submit {
+    font-size: 18px;
+    font-weight: 700;
+  }
+}
