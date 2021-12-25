@@ -23,14 +23,22 @@ body {
 }
 
 .chat {
-  max-width: 40%;
-  min-width: 40%;
   min-height: 40px;
   border-radius: 5px;
   border: 1px dotted black;
   display: flex;
-  align-items: center;
-  padding: 0 15px;
+  flex-direction: column;
+}
+
+.upper {
+  height: max-content;
+  font-size: 15px !important;
+  padding: 0 10px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.message {
+  padding: 0 12px;
 }
 
 .left {
@@ -43,8 +51,21 @@ body {
 .right {
   float: right;
   clear: both;
-  background-color: yellow;
+  background-color: rgb(233, 233, 123);
   margin: 10px 0;
+}
+
+.mid {
+  margin: auto;
+  clear: both;
+  width: max-content !important;
+  background-color: rgb(243, 223, 223);
+  min-height: 20px;
+  font-size: 15px;
+  margin: 10px auto;
+  padding: 0 20px;
+  font-weight: 600;
+  color: grey;
 }
 
 .send {
@@ -54,22 +75,26 @@ body {
 .send input {
   height: 55px;
   width: 80%;
-  padding: 0 20px;
+  padding: 5px 20px;
   font-size: 25px;
   outline: none;
 }
-.send span {
+
+.send #submit {
   height: 55px;
   width: 20%;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: rgb(247, 127, 106);
-  color: yellowgreen;
+  color: rgb(255, 255, 255);
   cursor: pointer;
   font-size: 35px;
+  outline: none;
+  border: none;
+  margin-left: 5px;
 }
 
-.send-message span:hover {
+.send #submit:hover {
   background-color: tomato;
 }
