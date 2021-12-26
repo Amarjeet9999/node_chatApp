@@ -7,7 +7,7 @@ https://chatapp-amarjeet.herokuapp.com/
 
 # Stack Used
 In this project I have used the following tech stack:
-* nodejs
+* NodeJs
 * Express
 * Socket.io
 * HTML
