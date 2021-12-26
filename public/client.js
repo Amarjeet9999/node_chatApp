@@ -1,5 +1,4 @@
 const socket = io();
-
 const container = document.querySelector(".container");
 const sendForm = document.querySelector(".send");
 const input = document.querySelector("#input");
@@ -8,10 +7,11 @@ const enterUsername = document.getElementById("enterUsername");
 
 let userName; // Entered User
 
+let prevData = []; // for storing previous chat
+
 usernameForm.addEventListener("submit", (e) => {
   e.preventDefault();
   userName = enterUsername.value;
-  console.log(enterUsername.value);
   document.querySelector(".nameBox").style.display = "none";
   socket.emit("new_user_joined", userName);
 });
@@ -24,11 +24,9 @@ const append = (name, message, position) => {
   const messageDiv = document.createElement("messageDiv");
   messageDiv.classList.add("message");
   messageDiv.innerText = message;
-
   mainDiv.append(upper, messageDiv);
   mainDiv.classList.add("chat");
   mainDiv.classList.add(position);
-
   container.append(mainDiv);
 };
 
@@ -54,6 +52,9 @@ socket.on("user_joined", (name) => {
 });
 
 socket.on("recieve", (data) => {
-  console.log(data);
   append(data.name, data.message, "left");
+});
+
+socket.on("user_left", (data) => {
+  joinAppend(`${data} Left the chat`, "mid");
 });

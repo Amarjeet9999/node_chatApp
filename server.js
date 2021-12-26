@@ -21,14 +21,20 @@ io.on("connection", (socket) => {
   socket.on("new_user_joined", (name) => {
     user[socket.id] = name;
     socket.broadcast.emit(`user_joined`, name);
+    // console.log(user);
   });
 
   // For message event
   socket.on("send", (message) => {
+    // console.log(message);
     socket.broadcast.emit("recieve", {
       name: user[socket.id],
       message: message,
     });
+  });
+
+  socket.on("disconnect", () => {
+    socket.broadcast.emit("user_left", user[socket.id]);
   });
 });
 
