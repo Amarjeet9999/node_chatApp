@@ -1,6 +1,9 @@
 const socket = io(); // Web socket allows us to communicate in realtime within the
 // client and the server
 
+// Creating Alert audio with the Audio contructor
+let alert = new Audio("alert.mp3");
+
 // DOM elements
 const container = document.querySelector(".container");
 const sendForm = document.querySelector(".send");
@@ -42,6 +45,7 @@ const append = (name, message, position) => {
   mainDiv.classList.add("chat");
   mainDiv.classList.add(position);
   container.append(mainDiv);
+  getBottom();
 };
 
 // UI Logic for whenever there will be a new user join
@@ -51,6 +55,7 @@ const joinAppend = (message, position) => {
   mainDiv.classList.add("chat");
   mainDiv.classList.add(position);
   container.append(mainDiv);
+  getBottom();
 };
 
 // Logic for send message
@@ -68,9 +73,11 @@ socket.on("user_joined", (name) => {
   joinAppend(`${name} Joined the chat`, "mid");
 });
 
-// When ever there will be recieve event fire
+// When ever there will be recieve event fire then,
+// Appendind the new meesage to DOM and play a alert audio
 socket.on("recieve", (data) => {
   append(data.name, data.message, "left");
+  alert.play();
 });
 
 // Calling user_left whenever any user left and a callback functions
@@ -113,3 +120,7 @@ let close = document.querySelector(".close");
 close.addEventListener("click", () => {
   document.querySelector(".showAllusers").style.display = "none";
 });
+
+function getBottom() {
+  container.scrollTo(0, container.scrollHeight);
+}

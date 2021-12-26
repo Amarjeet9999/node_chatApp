@@ -15,6 +15,10 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/index.html");
 });
 
+app.get("/alert.mp3", (req, res) => {
+  res.sendFile(__dirname + "/public/alert.mp3");
+});
+
 // Variable for storing user name with their ids
 const user = {};
 
