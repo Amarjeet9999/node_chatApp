@@ -2,7 +2,7 @@ const socket = io(); // Web socket allows us to communicate in realtime within t
 // client and the server
 
 // Creating Alert audio with the Audio contructor
-let alert = new Audio("alert.mp3");
+let alert = new Audio("static/alert.mp3");
 
 // DOM elements
 const container = document.querySelector(".container");
